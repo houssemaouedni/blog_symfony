@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Acceuil{% endblock %}
+
+{% block body %}
+<h1 style="text-align: center">Blog d'actualité Jstore</h1>
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      {% for article in articles %}
+        <div class="card mb-3 m-2 p-2 col-md-2" style="width: 17rem;">
+          <p class="date"> Ecrit le {{article.createdAt | date("d/m/y")}}</p>
+          <img src="{{article.image}}" class="card-img-top" alt="{{article.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{article.title}}</h5>
+            <a href="{{path ('show',{'id':article.id})}}" class="btn btn-primary">En savoir plus</a>
+          </div>
+            <p class="text">Created by : {{article.author}}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+      <h1>Categories</h1>
+      {% for catego in category %}
+        <ul class="list-group ">
+          <li class="list-group-item  d-flex justify-content-between align-items-center">
+            <a href="{{path('show_article',{'id':catego.id})}}">{{catego.title}}</a>
+            <span class="badge bg-primary rounded-pill">{{catego.articles | length}} article(s)</span>
+            
+          </li>
+        </ul>  
+      {% endfor %}
+
+  </div>
+</div>
+
+
+{% endblock %}

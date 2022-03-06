@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <h1>{{ controller_name }}! ✅</h1>
+    {{form_start(form)}}
+    <div class="row" width="80%">
+        <div class="col-md-4 mt-2">
+                {{form_row(form.username,{'label': "Nom d'utilisateur : ", 'attr':{'palceholder': "Votre nom d'utilisateur SVP !.... "}})}}
+        </div>
+        <div class="col-md-4 mt-2">
+        {{form_row(form.firstname,{'label': "Prenom : ", 'attr':{'palceholder': "Votre Prenom SVP !.... "}})}}
+        </div>
+        <div class="col-md-4 mt-2">
+                {{form_row(form.lastname,{'label': "Nom : ", 'attr':{'palceholder': "Votre Nom SVP !.... "}})}}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-2">        
+        {{form_row(form.email,{'label': "Email : ", 'attr':{'palceholder': "Votre Email SVP !.... "}})}}
+        </div>
+        <div class="col-12 mt-2">
+                {{form_row(form.password,{'label': "Password : ", 'attr':{'palceholder': "Votre Password SVP !.... "}})}}
+        </div>
+        <div class="col-12 mt-2">
+                {{form_row(form.passwordConfirme,{'label': "PasswordConfirme : ", 'attr':{'palceholder': "Votre PasswordConfirme SVP !.... "}})}}
+
+        </div>
+    </div>  
+        <div class="col m-2 p-2">
+        <a type="submit" class="btn btn-primary btn-sm" href="{{path('security_login')}}">Se connecter</a>
+        <button type="submit" class="btn btn-success btn-sm"> Sing UP </button>
+        
+        </div>
+    {{form_end(form)}}
+</div>
+{% endblock %}

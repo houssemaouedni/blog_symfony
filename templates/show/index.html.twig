@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+<div class="m-3 p-1">
+<h2>{{articles.title}}</h2>
+</div>
+<div class="container">
+    <div class="img-fluid">
+    <p class="date"> Ecrire le {{articles.createdAt | date("d/m/y")}}</p>
+    <img width="350px" src="/assets/blog/images/{{articles.image}}" alt="{{articles.title}}">
+    </div>
+    <p class="content text-justify mt-1">{{articles.content}}</p>
+    <a href="/" class="btn btn-primary">Retour</a>
+</div>
+
+{% endblock %}
